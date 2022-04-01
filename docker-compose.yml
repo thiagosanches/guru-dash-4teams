@@ -39,7 +39,7 @@ services:
   metrics-service:
     build: ./metrics-service
     environment:
-      - INFLUXDB=http://xxx:yyyy@influxdb:8086/devops
+      - INFLUXDB=http://dev_user:Dev%402021@influxdb:8086/devops
       - PORT=8080
       - STRAPI_URL=http://strapi:1337
       - STRAPI_USERNAME=api
@@ -56,7 +56,7 @@ services:
   db-transformation-service:
     build: ./db-transformation-service
     environment:
-      - INFLUXDB=http://admin:admin@influxdb:8086/devops
+      - INFLUXDB=http://dev_user:Dev%402021@influxdb:8086/devops
       - STRAPI_URL=http://strapi:1337
       - STRAPI_USERNAME=api
       - STRAPI_PASSWORD=techmetrics
@@ -69,7 +69,7 @@ services:
   metrics-service-jenkins-webhook:
     build: ./metrics-service-jenkins-webhook
     environment:
-      - INFLUXDB=http://admin:admin@influxdb:8086/devops
+      - INFLUXDB=http://dev_user:Dev%402021@influxdb:8086/devops
     ports:
       - 8081:8081
     depends_on:
