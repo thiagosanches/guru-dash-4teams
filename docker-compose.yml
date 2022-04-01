@@ -6,6 +6,8 @@ services:
     image: influxdb:1.8.4
     environment:
       - INFLUXDB_DB=devops
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
     volumes:
       - ./influx/influxdb.conf:/etc/influxdb/influxdb.conf
     ports:
