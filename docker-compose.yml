@@ -10,6 +10,7 @@ services:
       - ./influx/influxdb.conf:/etc/influxdb/influxdb.conf
     ports:
       - 8086:8086  
+    restart: always
 
   grafana:
     image: grafana/grafana
@@ -23,6 +24,7 @@ services:
       - GF_INSTALL_PLUGINS=aceiot-svg-panel
     depends_on:
       - influxdb
+    restart: always
 
   strapi:
     image: strapi/strapi
@@ -30,6 +32,7 @@ services:
       - ./strapi:/srv/app
     ports:
       - 1337:1337
+    restart: always
 
   metrics-service:
     build: ./metrics-service
